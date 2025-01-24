@@ -1,4 +1,4 @@
-import Banner from "@/components/Banner";
+import Banner from "@/components/layout/Banner";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 
 import { Toaster } from "@/components/ui/toaster";

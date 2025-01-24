@@ -1,3 +1,5 @@
+//use this component to create a sidebar for your application
+// place it in main.tsx file
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 
 import {
