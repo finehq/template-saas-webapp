@@ -8,18 +8,21 @@ import { BrowserRouter, Routes } from "react-router";
 
 import { TooltipProvider } from "./components/ui/tooltip";
 
+import { SidebarProvider } from "./components/ui/sidebar";
 import "./index.css";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <BrowserRouter>
-        <Routes></Routes>
-      </BrowserRouter>
-      <Sonner />
-      <Toaster />
-      <Banner />
-    </TooltipProvider>
+    <SidebarProvider>
+      <TooltipProvider>
+        <BrowserRouter>
+          <Routes></Routes>
+        </BrowserRouter>
+        <Sonner />
+        <Toaster />
+        <Banner />
+      </TooltipProvider>
+    </SidebarProvider>
   </QueryClientProvider>
 );
