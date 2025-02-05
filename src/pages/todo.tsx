@@ -1,27 +1,19 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router";
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const Index = () => {
-  // State to manage tasks and input field
+const Todo = () => {
   const [tasks, setTasks] = useState<{ id: number; text: string; completed: boolean }[]>([]);
   const [taskInput, setTaskInput] = useState("");
 
-  // Add a new task
   const addTask = () => {
     if (taskInput.trim() === "") return; // Ignore empty inputs
     setTasks([...tasks, { id: Date.now(), text: taskInput, completed: false }]);
     setTaskInput(""); // Clear input field
   };
 
-  // Toggle task completion
   const toggleComplete = (id: number) => {
     setTasks(
       tasks.map((task) =>
@@ -30,23 +22,14 @@ const Index = () => {
     );
   };
 
-  // Delete a task
   const deleteTask = (id: number) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  // Update document title on component mount
-  useEffect(() => {
-    document.title = "To-Do List App - Fine";
-  }, []);
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      {/* Header */}
       <h1 className="text-3xl font-bold mb-6">To-Do List</h1>
-
-      {/* Input and Add Button */}
-      <div className="w-full max-w-md flex items-center gap-6 mb-6">
+      <div className="w-full max-w-md flex items-center gap-2 mb-6">
         <Input
           value={taskInput}
           onChange={(e) => setTaskInput(e.target.value)}
@@ -57,11 +40,9 @@ const Index = () => {
           Add
         </Button>
       </div>
-
-      {/* Task List */}
       <div className="w-full max-w-md space-y-4">
         {tasks.map((task) => (
-          <Card key={task.id} className="flex items-center justify-between p-6 rounded-lg border-border shadow-sm hover:shadow-md">
+          <Card key={task.id} className="flex items-center justify-between p-4">
             <CardContent className="flex items-center gap-2">
               <Checkbox
                 checked={task.completed}
@@ -88,16 +69,9 @@ const Index = () => {
             </CardFooter>
           </Card>
         ))}
-        <div className="mt-6">
-          <Link to="/todo">
-            <Button className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90">
-              Go to To-Do List
-            </Button>
-          </Link>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Index;
+export default Todo;

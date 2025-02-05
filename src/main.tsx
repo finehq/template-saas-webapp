@@ -12,6 +12,7 @@ import { TooltipProvider } from "./components/ui/tooltip";
 import { SidebarProvider } from "./components/ui/sidebar";
 import "./index.css";
 import Index from "./pages";
+import Todo from "./pages/todo";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/todo" element={<Todo />} />
           </Routes>
         </BrowserRouter>
         <Sonner />
