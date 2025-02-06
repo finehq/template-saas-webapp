@@ -10,25 +10,26 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { TooltipProvider } from "./components/ui/tooltip";
 
 import { ThemeProvider } from "./components/layout/theme-provider";
+import { SidebarProvider } from "./components/ui/sidebar";
 import "./index.css";
 import Index from "./pages";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>
-    {/* <SidebarProvider> */}
-    <TooltipProvider>
-      <ThemeProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-          </Routes>
-        </BrowserRouter>
-        <Sonner />
-        <Toaster />
-        <Banner />
-      </ThemeProvider>
-    </TooltipProvider>
-    {/* </SidebarProvider> */}
+    <SidebarProvider>
+      <TooltipProvider>
+        <ThemeProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+            </Routes>
+          </BrowserRouter>
+          <Sonner />
+          <Toaster />
+          <Banner />
+        </ThemeProvider>
+      </TooltipProvider>
+    </SidebarProvider>
   </QueryClientProvider>
 );
