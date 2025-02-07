@@ -1,6 +1,6 @@
 //use this component to create a sidebar for your application
 // place it in main.tsx file
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Home } from "lucide-react";
 
 import {
   Sidebar,
@@ -17,28 +17,8 @@ import { Link } from "react-router";
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
   },
 ];
 
