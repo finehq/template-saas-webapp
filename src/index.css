@@ -82,3 +82,6 @@
   }
 }
 
+main {
+  @apply min-h-screen w-full;
+}
