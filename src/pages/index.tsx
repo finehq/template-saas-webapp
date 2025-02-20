@@ -1,5 +1,4 @@
 // Update this page (the content is just a fallback if you fail to update the page). Always include w-full and min-h-screen classes in the main element.
-import React from 'react'
 const Index = () => {
   return (
     <main className="  flex items-center justify-center bg-gray-100 ">
