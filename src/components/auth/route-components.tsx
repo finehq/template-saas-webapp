@@ -1,6 +1,5 @@
 import { useFine } from "@/hooks/use-fine";
-import { PropsWithChildren } from "react";
-import { Navigate, Outlet, Route } from "react-router";
+import { Navigate } from "react-router";
 
 export const GuestRoute = ({ Component }: { Component: () => JSX.Element }) => {
   const fine = useFine();
