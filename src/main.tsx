@@ -13,23 +13,33 @@ import { ThemeProvider } from "./components/layout/theme-provider";
 import { SidebarProvider } from "./components/ui/sidebar";
 import "./index.css";
 import Index from "./pages";
+import LoginPage from "./pages/auth/login";
+import SignupPage from "./pages/auth/signup";
+import { FineProvider } from "./hooks/use-fine";
+import { AuthenticatedRoute, GuestRoute } from "./components/auth/route-components";
+import LogoutPage from "./pages/auth/logout";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
-  <QueryClientProvider client={queryClient}>
-    <SidebarProvider>
-      <TooltipProvider>
-        <ThemeProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-            </Routes>
-          </BrowserRouter>
-          <Sonner />
-          <Toaster />
-          <Banner />
-        </ThemeProvider>
-      </TooltipProvider>
-    </SidebarProvider>
-  </QueryClientProvider>
+  <FineProvider>
+    <QueryClientProvider client={queryClient}>
+      <SidebarProvider>
+        <TooltipProvider>
+          <ThemeProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={<Index />} />
+                <Route path='/login' element={<GuestRoute Component={LoginPage} />} />
+                <Route path='/signup' element={<GuestRoute Component={SignupPage} />} />
+                <Route path='/logout' element={<AuthenticatedRoute Component={LogoutPage} />} />
+              </Routes>
+            </BrowserRouter>
+            <Sonner />
+            <Toaster />
+            <Banner />
+          </ThemeProvider>
+        </TooltipProvider>
+      </SidebarProvider>
+    </QueryClientProvider>
+  </FineProvider>
 );
