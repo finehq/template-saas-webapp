@@ -26,15 +26,14 @@ export function SignInForm({ withGithub }: { withGithub?: boolean }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      setError("");
-      setIsLoading(true);
-      await fine.auth.signInWithPassword(formData);
-      navigate("/");
-    } catch (err) {
-      setError("Invalid email or password. Please try again.");
-      setIsLoading(false);
-    }
+    setError("");
+    setIsLoading(true);
+    const { error } = await fine.auth.signInWithPassword(formData);
+    if (!error) return navigate("/");
+
+    console.error(error);
+    setError("Invalid email or password. Please try again.");
+    setIsLoading(false);
   };
 
   return (

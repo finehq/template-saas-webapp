@@ -33,15 +33,14 @@ export function SignUpForm({ withGithub }: { withGithub?: boolean }) {
 
     if (formData.password !== formData.confirmPassword) return setError("Passwords do not match");
 
-    try {
-      setError("");
-      setIsLoading(true);
-      await fine.auth.signUp(formData);
-      navigate("/");
-    } catch (err) {
-      setError("Failed to create account. Please try again.");
-      setIsLoading(false);
-    }
+    setError("");
+    setIsLoading(true);
+    const { error } = await fine.auth.signUp(formData);
+    if (!error) return navigate("/");
+
+    console.error(error);
+    setError("Failed to create account. Please try again.");
+    setIsLoading(false);
   };
 
   return (
