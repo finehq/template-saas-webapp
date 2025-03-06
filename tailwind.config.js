@@ -59,15 +59,6 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			},
-  			todo: {
-  				'completed': '#A3E635',
-  				'pending': '#FCD34D',
-  				'high': '#EF4444',
-  				'medium': '#F97316',
-  				'low': '#3B82F6',
-  				'hover': 'hsl(var(--accent))',
-  				'active': 'hsl(var(--primary))'
   			}
   		}
   	}
