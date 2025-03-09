@@ -1,20 +1,12 @@
-import { TodoForm } from "@/components/TodoForm";
-import { TodoFilter } from "@/components/TodoFilter";
-import { TodoList } from "@/components/TodoList";
-import { ModeToggle } from "@/components/ModeToggle";
-
+// Update this page (the content is just a fallback if you fail to update the page). Always include w-full and min-h-screen classes in the main element.
 const Index = () => {
   return (
-    <main className="w-full min-h-screen py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Todo App</h1>
-          <ModeToggle />
-        </div>
-        
-        <TodoForm />
-        <TodoFilter />
-        <TodoList />
+    <main className="  flex items-center justify-center bg-gray-100 ">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
+        <p className="text-xl text-gray-600">
+          Start building your amazing project here!
+        </p>
       </div>
     </main>
   );
