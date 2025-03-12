@@ -9,15 +9,17 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import { TooltipProvider } from "./components/ui/tooltip";
 
+import {
+  AuthenticatedRoute,
+  GuestRoute,
+} from "./components/auth/route-components";
 import { ThemeProvider } from "./components/layout/theme-provider";
-import { SidebarProvider } from "./components/ui/sidebar";
+import { FineProvider } from "./hooks/use-fine";
 import "./index.css";
 import Index from "./pages";
 import LoginPage from "./pages/auth/login";
-import SignupPage from "./pages/auth/signup";
-import { FineProvider } from "./hooks/use-fine";
-import { AuthenticatedRoute, GuestRoute } from "./components/auth/route-components";
 import LogoutPage from "./pages/auth/logout";
+import SignupPage from "./pages/auth/signup";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
@@ -27,10 +29,19 @@ createRoot(document.getElementById("root")!).render(
         <ThemeProvider>
           <BrowserRouter>
             <Routes>
-              <Route path='/' element={<Index />} />
-              <Route path='/login' element={<GuestRoute Component={LoginPage} />} />
-              <Route path='/signup' element={<GuestRoute Component={SignupPage} />} />
-              <Route path='/logout' element={<AuthenticatedRoute Component={LogoutPage} />} />
+              <Route path="/" element={<Index />} />
+              <Route
+                path="/login"
+                element={<GuestRoute Component={LoginPage} />}
+              />
+              <Route
+                path="/signup"
+                element={<GuestRoute Component={SignupPage} />}
+              />
+              <Route
+                path="/logout"
+                element={<AuthenticatedRoute Component={LogoutPage} />}
+              />
             </Routes>
           </BrowserRouter>
           <Sonner />
