@@ -23,23 +23,21 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <FineProvider>
     <QueryClientProvider client={queryClient}>
-      <SidebarProvider>
-        <TooltipProvider>
-          <ThemeProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path='/' element={<Index />} />
-                <Route path='/login' element={<GuestRoute Component={LoginPage} />} />
-                <Route path='/signup' element={<GuestRoute Component={SignupPage} />} />
-                <Route path='/logout' element={<AuthenticatedRoute Component={LogoutPage} />} />
-              </Routes>
-            </BrowserRouter>
-            <Sonner />
-            <Toaster />
-            <Banner />
-          </ThemeProvider>
-        </TooltipProvider>
-      </SidebarProvider>
+      <TooltipProvider>
+        <ThemeProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Index />} />
+              <Route path='/login' element={<GuestRoute Component={LoginPage} />} />
+              <Route path='/signup' element={<GuestRoute Component={SignupPage} />} />
+              <Route path='/logout' element={<AuthenticatedRoute Component={LogoutPage} />} />
+            </Routes>
+          </BrowserRouter>
+          <Sonner />
+          <Toaster />
+          <Banner />
+        </ThemeProvider>
+      </TooltipProvider>
     </QueryClientProvider>
   </FineProvider>
 );
