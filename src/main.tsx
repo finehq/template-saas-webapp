@@ -1,5 +1,4 @@
 // start the app always with '/' route
-import Banner from "@/components/layout/Banner";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 
 import { Toaster } from "@/components/ui/toaster";
@@ -9,10 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import { TooltipProvider } from "./components/ui/tooltip";
 
-import {
-  AuthenticatedRoute,
-  GuestRoute,
-} from "./components/auth/route-components";
+import { AuthenticatedRoute, GuestRoute } from "./components/auth/route-components";
 import { ThemeProvider } from "./components/layout/theme-provider";
 import { FineProvider } from "./hooks/use-fine";
 import "./index.css";
@@ -29,24 +25,14 @@ createRoot(document.getElementById("root")!).render(
         <ThemeProvider>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route
-                path="/login"
-                element={<GuestRoute Component={LoginPage} />}
-              />
-              <Route
-                path="/signup"
-                element={<GuestRoute Component={SignupPage} />}
-              />
-              <Route
-                path="/logout"
-                element={<AuthenticatedRoute Component={LogoutPage} />}
-              />
+              <Route path='/' element={<Index />} />
+              <Route path='/login' element={<GuestRoute Component={LoginPage} />} />
+              <Route path='/signup' element={<GuestRoute Component={SignupPage} />} />
+              <Route path='/logout' element={<AuthenticatedRoute Component={LogoutPage} />} />
             </Routes>
           </BrowserRouter>
           <Sonner />
           <Toaster />
-          <Banner />
         </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>
