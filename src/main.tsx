@@ -11,8 +11,9 @@ import { TooltipProvider } from "./components/ui/tooltip";
 import { ThemeProvider } from "./components/layout/theme-provider";
 import "./index.css";
 import Index from "./pages";
-import LoginForm from "./components/auth/login-form";
-import SignupForm from "./components/auth/signup-form";
+import LoginForm from "./pages/login";
+import SignupForm from "./pages/signup";
+import Logout from "./pages/logout";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path='/' element={<Index />} />
             <Route path='/login' element={<LoginForm />} />
             <Route path='/signup' element={<SignupForm />} />
+            <Route path='/logout' element={<Logout />} />
           </Routes>
         </BrowserRouter>
         <Sonner />
