@@ -91,10 +91,6 @@ export default function LoginForm() {
           },
         }
       );
-
-      if (error) {
-        throw error;
-      }
     } catch (error: any) {
       toast({
         title: "Error",
