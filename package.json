@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:bun": "tsc -b && bun build ./index.html --minify --outdir=dist",
+    "build:bun": "tsc -b && bun build ./index.html --public-path=/public --minify --outdir=dist ",
     "lint": "eslint .",
     "preview": "vite preview",
     "build:sourcemap": "tsc -b && vite build --sourcemap"
